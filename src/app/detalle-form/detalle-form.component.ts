@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray,Validators, FormControl } from '@angular/forms';
 
 
-
-
-
 @Component({
   selector: 'app-detalle-form',
   templateUrl: './detalle-form.component.html',

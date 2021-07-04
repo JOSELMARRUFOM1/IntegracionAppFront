@@ -1,6 +1,5 @@
-.margenes{
-    margin-top: 2%;
-margin-left: 2%;
-margin-bottom: 2%;
-margin-right: 2%;
+.form-submitted input.ng-invalid,
+.form-submitted select.ng-invalid {
+  border-color: #dc3545;
+  color: #dc3545;
 }

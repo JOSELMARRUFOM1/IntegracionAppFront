@@ -1,199 +1,217 @@
 <app-home></app-home>
 <div>
-    <div class="row">            
+    <div class="row">
         <div class="col-md-4 ">
-          <br> 
+            <br>
         </div>
-    </div>   
-    <div class="shadow-none p-3 mb-5 bg-light rounded">            
-        SECUENCIAS 
-    </div>  
+    </div>
+    <div class="shadow-none p-3 mb-5 bg-light rounded">
+        SECUENCIAS
+    </div>
 
     <hr />
     <div class="container my-3 p-3 bg-body rounded shadow-sm ">
         <form [formGroup]="detalleform" (ngSubmit)="onSubmit()">
-            <div class="row">              
+            <div class="row">
                 <div class="col-md-8">
                     <label for="Middleware" class="form-label">Middleware</label>
-                    <input id="Middleware"  type="text" class="form-control" formControlName="Middleware">
+                    <input id="Middleware" type="text" class="form-control" formControlName="Middleware">
                 </div>
-                <div class="col-md-4">                    
-                    <section>
-                        <label for="estados"  class="form-label text-bold">Estado</label>
-                        <select formControlName="Estados">
-                          <option [ngValue]="null" disabled>Seleccionar</option>  
-                          <option *ngFor="let item of estadoSolicitud" [ngValue]="item.id">
+                <div class="col-md-4">
+                    <label for="estados" class="form-label">Estado</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option [ngValue]="null" disabled>Seleccionar</option>
+                        <option *ngFor="let item of estadoSolicitud" [ngValue]="item.id">
                             <span>{{ item.descripcion }}</span>
-                          </option>
-                        </select>
-                      </section>
+                        </option>
+                    </select>
+
                 </div>
             </div>
-                      
-            <div class="row">            
+
+            <div class="row">
                 <div class="col-md-4 ">
-                  <br> 
+                    <br>
                 </div>
-            </div>  
-          
-            <div class="row">            
+            </div>
+
+            <div class="row">
                 <div class="col-md-5 shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="row">
                         <div class="col-12">
-                            <label for="SecuenciaOrigen" class="form-label">Descripción  Secuencia Origen</label>
-                            <input id="SecuenciaOrigen"  type="text" class="form-control"  formControlName="SecuenciaOrigen">
+                            <label for="SecuenciaOrigen" class="form-label">Descripción Secuencia Origen</label>
+                            <input id="SecuenciaOrigen" type="text" class="form-control"
+                                formControlName="SecuenciaOrigen">
                         </div>
-                    </div>   
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="InstanciaOrigen" class="form-label">Nombre Aplicación/Instancia Origen</label>
-                            <input id="InstanciaOrigen"  type="text" class="form-control" formControlName="InstanciaOrigen" >
+                            <input id="InstanciaOrigen" type="text" class="form-control"
+                                formControlName="InstanciaOrigen">
                         </div>
-                    </div>   
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="ConexionOrigen" class="form-label">Tipo Conexión Origen</label>
-                            <input id="ConexionOrigen"  type="text" class="form-control" formControlName="ConexionOrigen" > 
+                            <input id="ConexionOrigen" type="text" class="form-control"
+                                formControlName="ConexionOrigen">
                         </div>
-                    </div>   
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="ComunicacionOrigen" class="form-label">Usuario de Comunicación Origen</label>
-                            <input id="ComunicacionOrigen"  type="text" class="form-control" formControlName="UsuarioComunicaciónOrigen" >
+                            <input id="ComunicacionOrigen" type="text" class="form-control"
+                                formControlName="UsuarioComunicaciónOrigen">
                         </div>
-                    </div>   
+                    </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="CertificadoOrigen" class="form-label">Certificado  Origen</label>
-                            <input id="CertificadoOrigen"  type="text" class="form-control" formControlName="CertificadoOrigen" >
+                            <label for="CertificadoOrigen" class="form-label">Certificado Origen</label>
+                            <input id="CertificadoOrigen" type="text" class="form-control"
+                                formControlName="CertificadoOrigen">
                         </div>
-                    </div>    
-                    
+                    </div>
+
                     <div class="row">
                         <div class="col-12">
                             <label for="JobRelacionadoOrigen" class="form-label">Job Relacionado Origen</label>
-                            <input id="JobRelacionadoOrigen"  type="text" class="form-control" formControlName="JobRelacionadoOrigen" >
-                        </div>                    
+                            <input id="JobRelacionadoOrigen" type="text" class="form-control"
+                                formControlName="JobRelacionadoOrigen">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <label for="CelulaResponsableOrigen" class="form-label">Celula Responsable Origen</label>
-                            <input id="CelulaResponsableOrigen"  type="text" class="form-control" formControlName="CelulaResponsableOrigen" > 
-                        </div>                    
+                            <input id="CelulaResponsableOrigen" type="text" class="form-control"
+                                formControlName="CelulaResponsableOrigen">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <label for="ConectorOrigen" class="form-label">Conector Origen</label>
-                            <input id="ConectorOrigen"  type="text" class="form-control" formControlName="ConectorOrigen" > 
-                        </div>                    
+                            <input id="ConectorOrigen" type="text" class="form-control"
+                                formControlName="ConectorOrigen">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <label for="SistemaLogicoOrigen" class="form-label">Sistema Logico Origen</label>
-                            <input id="SistemaLogicoOrigen"  type="text" class="form-control" formControlName="SistemaLogicoOrigen"> 
-                        </div>                    
+                            <input id="SistemaLogicoOrigen" type="text" class="form-control"
+                                formControlName="SistemaLogicoOrigen">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
-                           
-                        </div>                    
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-1">                   
-                  </div>
+                <div class="col-md-1">
+                </div>
                 <div class="col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="row">
                         <div class="col-12">
-                            <label for="SecuenciaDestino" class="form-label">Descripción  Secuencia Destino</label>
-                            <input id="SecuenciaDestino"  type="text" class="form-control"  formControlName="SecuenciaDestino">
-                        </div>                    
+                            <label for="SecuenciaDestino" class="form-label">Descripción Secuencia Destino</label>
+                            <input id="SecuenciaDestino" type="text" class="form-control"
+                                formControlName="SecuenciaDestino">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="InstanciaDestino" class="form-label">Nombre Aplicación/Instancia Destino</label>
-                            <input id="InstanciaDestino"  type="text" class="form-control"  formControlName="InstanciaDestino">
-                        </div>                    
+                            <input id="InstanciaDestino" type="text" class="form-control"
+                                formControlName="InstanciaDestino">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="ConexionDestino" class="form-label">Tipo Conexión Destino</label>
-                            <input id="ConexionDestino"  type="text" class="form-control"  formControlName="ConexionDestino">
-                        </div>                    
+                            <input id="ConexionDestino" type="text" class="form-control"
+                                formControlName="ConexionDestino">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="UsuarioComunicaciónOrigen" class="form-label">Usuario de Comunicación Destino</label>
-                            <input id="UsuarioComunicaciónOrigen"  type="text" class="form-control"  formControlName="UsuarioComunicaciónOrigen">
-                        </div>                    
+                            <label for="UsuarioComunicaciónOrigen" class="form-label">Usuario de Comunicación
+                                Destino</label>
+                            <input id="UsuarioComunicaciónOrigen" type="text" class="form-control"
+                                formControlName="UsuarioComunicaciónOrigen">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="CertificadoDestino" class="form-label">CertificadoDestino</label>
-                            <input id="CertificadoDestino"  type="text" class="form-control"  formControlName="CertificadoDestino">
-                        </div>                    
+                            <input id="CertificadoDestino" type="text" class="form-control"
+                                formControlName="CertificadoDestino">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="JobRelacionadoDestino" class="form-label">Job Relacionado Destino</label>
-                            <input id="JobRelacionadoDestino"  type="text" class="form-control"  formControlName="JobRelacionadoDestino">
-                        </div>                    
+                            <input id="JobRelacionadoDestino" type="text" class="form-control"
+                                formControlName="JobRelacionadoDestino">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="CelulaResponsableDestino" class="form-label">Celula Responsable Destino</label>
-                            <input id="CelulaResponsableDestino"  type="text" class="form-control"  formControlName="CelulaResponsableDestino">
-                        </div>                    
+                            <input id="CelulaResponsableDestino" type="text" class="form-control"
+                                formControlName="CelulaResponsableDestino">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <label for="ConectorDestino" class="form-label">Conector Destino</label>
-                            <input id="ConectorDestino"  type="text" class="form-control"  formControlName="ConectorDestino">
-                        </div>                    
+                            <input id="ConectorDestino" type="text" class="form-control"
+                                formControlName="ConectorDestino">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <label for="SistemaLogicoDestino" class="form-label">Sistema Logico Destino</label>
-                            <input id="SistemaLogicoDestino"  type="text" class="form-control"  formControlName="SistemaLogicoDestino">
-                        </div>                    
+                            <input id="SistemaLogicoDestino" type="text" class="form-control"
+                                formControlName="SistemaLogicoDestino">
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
-                           
-                        </div>                    
+
+                        </div>
                     </div>
 
 
                 </div>
-            </div>  
-           
-            <hr/>
+            </div>
+
+            <hr />
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-outline-primary">Guardar</button>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                       
+
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                        <button [routerLink]="['/busqueda']"   type="submit" class="btn btn-primary">Regresar</button>
+                        <button [routerLink]="['/busqueda']" type="submit" class="btn btn-outline-primary">Regresar</button>
                     </div>
                 </div>
-            </div>     
+            </div>
 
 
         </form>
