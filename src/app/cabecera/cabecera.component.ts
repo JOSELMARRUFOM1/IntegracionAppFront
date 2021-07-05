@@ -7,10 +7,7 @@ import {FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./cabecera.component.css']
 })
 
-// "IdInterface":"1",
-// 	"Estado":"Activo",
-// 	"Entorno":"Produccion",
-// 	"Descripcion":"Interfaz con lp0"
+//  Ejemplo de merge
 export class CabeceraComponent implements OnInit {
  public formCabecera = new FormGroup({ });
   
