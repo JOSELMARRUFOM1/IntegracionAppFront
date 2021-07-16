@@ -10,14 +10,11 @@ import * as  data  from  '../assets/json/estados.json';
 export class AppComponent implements OnInit {
 
   listaestados=[];
-  title = 'integracion-app';
+  title = 'Ficha';
   //selectedEstado: data = new data('','');
 
 
   ngOnInit(): void {
-    console.log('Leyendo el archivo Json:');
-    console.log(data);
-
   }
   
 

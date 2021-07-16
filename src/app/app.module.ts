@@ -14,7 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { DetalleFormComponent } from './detalle-form/detalle-form.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorTailorModule } from '@ngneat/error-tailor';
-
+import { HttpClientModule } from '@angular/common/http';
+//  HttpClientModule,
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ErrorTailorModule } from '@ngneat/error-tailor';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ErrorTailorModule.forRoot({
       errors: {
         useValue: {
