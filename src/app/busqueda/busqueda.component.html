@@ -18,19 +18,19 @@
             <form [formGroup]="formParametros" class="row g-3">
                 <div class="row my-3 p-3 bg-body rounded shadow-sm">
                     <div class="col-md-4">
-                        <label for="IdIdentificadorCI" class="form-label text-bold">Id Interfaz</label>
-                        <input type="text" class="form-control" id="IdIdentificadorCI"
-                            formControlName="IdIdentificadorCI" placeholder="Id Interfaz">
+                        <label for="Id" class="form-label text-bold">Id Interfaz</label>
+                        <input type="text" class="form-control" id="Id"
+                            formControlName="Id" placeholder="Id Interfaz">
                     </div>
                     <div class="col-md-4">
-                        <label for="IdDescripcion" class="form-label text-bold">Descripción</label>
-                        <input type="text" class="form-control" id="IdDescripcion" formControlName="IdDescripcion"
+                        <label for="Descripcion" class="form-label text-bold">Descripción</label>
+                        <input type="text" class="form-control" id="Descripcion" formControlName="Descripcion"
                             placeholder="Descripción de la Interfaz">
                     </div>
                     <div class="col-md-4">
-                        <label for="Middelware" class="form-label text-bold">Middelware</label>
-                        <select id="Middelware" class="form-select" formControlName="Middelware" name="Middelware">
-                            <option [value]="item.id" *ngFor="let item of middelwares">{{item.nombre}}</option>
+                        <label for="Estado" class="form-label text-bold">Estado</label>
+                        <select id="Estado" class="form-select" formControlName="Estado" name="Estado">
+                            <option [value]="item.id" *ngFor="let item of estados">{{item.nombre}}</option>
                         </select>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="col-sm-12">
                         <div class="form-group text-center">
                             <div class="divider-10"></div>
-                            <button (click)="editar()" class="btn btn-outline-primary">Buscar</button>
+                            <button (click)="Buscar()" class="btn btn-outline-primary">Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -55,31 +55,25 @@
                 <br>
             </div>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Id Interfaz</th>
-                    <th scope="col">Decripcion</th>
-                    <th scope="col">Instancia Origen</th>
-                    <th scope="col">Instancia Destino</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Integrador</th>
-                    <th style="width: 1%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>INTZ_PX120</td>
-                    <td>Interfaz con LP0 sadjkasdjashkdjasdjashdjasjdasjdahdjhasjdsajdhasjdhasjd</td>
-                    <td>INS_4buy</td>
-                    <td>INS_Hr </td>
-                    <td>Activo</td>
-                    <td>INS_XP7</td>
-                    <td><button class="btn btn-primary">Editar</button></td>
-                    <!-- <td><button class="btn btn-primary" (click)="ver(sencuencia)">Ver</button></td> -->
-                </tr>
-            </tbody>
-        </table>
+        
 
     </div>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id Interfaz</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ficha of data">
+            <td>{{ ficha.idInterface }}</td>
+            <td>{{ ficha.descripcion }}</td>
+            <td>{{ ficha.estado }}</td>
+            <td><button class="btn btn-primary" (click)="editarFicha(ficha)">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
 </div>

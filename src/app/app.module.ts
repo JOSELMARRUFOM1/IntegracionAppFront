@@ -15,6 +15,8 @@ import { DetalleFormComponent } from './detalle-form/detalle-form.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorTailorModule } from '@ngneat/error-tailor';
 import { HttpClientModule } from '@angular/common/http';
+
+import { DataTablesModule } from "angular-datatables";
 //  HttpClientModule,
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DataTablesModule,
     ErrorTailorModule.forRoot({
       errors: {
         useValue: {
