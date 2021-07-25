@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light "style="background-color: #007bff!important;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
   <!-- <a class="navbar-brand" href="#">Inicio</a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,14 +6,15 @@
   </button>
   <div class="collapse navbar-collapse"  id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link"  style="color: #fff;"  routerLink="/busqueda">Busqueda</a>
+      <li class="nav-item ">
+        <a class="nav-link" [routerLinkActive]="['active']"  routerLink="/busqueda">Busqueda Escensario</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link"  style="color: #fff;"  routerLink="/home">Nuevo</a>
+        <a class="nav-link" [routerLinkActive]="['active']"    routerLink="/home">Nuevo Escensario</a>
       </li>
     </ul>
 
   </div>
 </nav>
+
