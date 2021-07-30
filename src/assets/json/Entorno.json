@@ -9,11 +9,21 @@
     },
     {
       "id": "2",
-      "nombre": "Calidad"
+      "nombre": "Historico"
     },
     {
       "id": "3",
+      "nombre": "Preproduccion"
+    },
+    {
+      "id": "4",
       "nombre": "Produccion"
+    },{
+      "id": "5",
+      "nombre": "Test/Integracion"
+    },{
+      "id": "6",
+      "nombre": "Testing"
     }
   ]
   

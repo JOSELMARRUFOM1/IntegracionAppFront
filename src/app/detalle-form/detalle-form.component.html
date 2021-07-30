@@ -211,7 +211,12 @@
                 <div *ngIf="!modoEdicion" class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                        <button (click)="onSubmit()" class="btn btn-outline-primary">Guardar</button>
+
+                        <button (click)="onSubmit()"   class="btn btn-outline-primary">
+                            <span *ngIf="enviarServidor" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span class="sr-only">Guardar</span>
+                        </button>
+                    
                     </div>
                 </div>
                 <div *ngIf="modoEdicion" class="col-sm-4">
@@ -219,6 +224,8 @@
                         <div class="divider-10"></div>
                         <button (click)="editar()" [disabled]="!modoEdicion"
                             class="btn btn-outline-primary">Editar</button>
+
+
                     </div>
                 </div>
 
@@ -231,7 +238,7 @@
                 <div class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                        <button [routerLink]="['/busqueda']" class="btn btn-outline-primary">Regresar</button>
+                        <button (click)="regresar()" class="btn btn-outline-primary">Regresar</button>
                     </div>
                 </div>
             </div>

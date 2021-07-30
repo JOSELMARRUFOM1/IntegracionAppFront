@@ -19,10 +19,7 @@
                 <div class="row my-3 p-3 bg-body rounded shadow-sm">
                     <div class="col-md-4">
                         <label for="Id" class="form-label text-bold">Id Interfaz</label>
-                        <input type="text" class="form-control" id="Id"
-                            formControlName="Id" placeholder="Id Interfaz"
-                           
-                            >
+                        <input type="text" class="form-control" id="Id" formControlName="Id" placeholder="Id Interfaz">
                     </div>
                     <div class="col-md-4">
                         <label for="Descripcion" class="form-label text-bold">Descripción</label>
@@ -46,7 +43,10 @@
                     <div class="col-sm-12">
                         <div class="form-group text-center">
                             <div class="divider-10"></div>
-                            <button (click)="Buscar()" class="btn btn-outline-primary">Buscar</button>
+                            <button (click)="Buscar()" class="btn btn-outline-primary">
+                                <span *ngIf="busqueda" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                <span class="sr-only">Buscar</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -57,26 +57,27 @@
                 <br>
             </div>
         </div>
-        
 
     </div>
 
     <table class="table table-striped">
         <thead>
-          <tr>
-            <th>Id Interfaz</th>
-            <th>Descripción</th>
-            <th>Estado</th>
-            <th></th>
-          </tr>
+            <tr class="d-flex">
+                <th class="col-4">Id Interfaz</th>
+                <th class="col-6">Descripción</th>
+                <th class="col-1">Estado</th>
+                <th class="col-1"></th>
+            </tr>
         </thead>
+
         <tbody>
-          <tr *ngFor="let ficha of data">
-            <td>{{ ficha.idInterface }}</td>
-            <td>{{ ficha.descripcion }}</td>
-            <td>{{ ficha.estado }}</td>
-            <td><button class="btn btn-primary" (click)="editarFicha(ficha)">Editar Escensario</button></td>
-          </tr>
+            <tr class="d-flex" *ngFor="let ficha of data">
+                <td class="col-4">{{ ficha.idInterface }}</td>
+                <td class="col-6">{{ ficha.descripcion }}</td>
+                <td class="col-1">{{ ficha.estado }}</td>
+                <td class="col-1"><button class="btn btn-primary" (click)="editarFicha(ficha)">Editar</button>
+                </td>
+            </tr>
         </tbody>
-      </table>
+    </table>
 </div>

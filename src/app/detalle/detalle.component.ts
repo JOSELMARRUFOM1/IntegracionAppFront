@@ -15,6 +15,7 @@ export class DetalleComponent implements OnInit {
   public secuencias: Array<any> = [];
   middelwares: any = (datamiddleware as any).default;
   estados: any = (dataestados as any).default;
+  // dtOptions: DataTables.Settings = {};
   constructor(private busquedaService: BusquedaServiceService,
     private restserviceservice: RestServiceService,
     private router: Router) { }
@@ -23,6 +24,10 @@ export class DetalleComponent implements OnInit {
       this.cargarData(data.id);
       this.secuencias = [];
     })
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers',
+    //   pageLength: 2
+    // };
   }
   getName(id: number): string {
     var nombre = "";

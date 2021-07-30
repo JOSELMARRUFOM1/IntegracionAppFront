@@ -5,18 +5,26 @@
   },
   {
     "id": "1",
-    "nombre": "Activo"
-  },
-  {
-    "id": "2",
-    "nombre": "Inactivo"
-  },
-  {
-    "id": "3",
     "nombre": "Baja"
   },
   {
-    "id": "4",
+    "id": "2",
+    "nombre": "En Desarrollo"
+  },
+  {
+    "id": "3",
     "nombre": "Historico"
+  },
+  {
+    "id": "4",
+    "nombre": "Operativo"
+  },
+  {
+    "id": "5",
+    "nombre": "Reparacion"
+  },
+  {
+    "id": "6",
+    "nombre": "Stock"
   }
 ]

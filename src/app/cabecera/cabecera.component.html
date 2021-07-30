@@ -5,32 +5,33 @@
                 <div class="col-md-4">
                     <label for="idInterface" class="form-label text-bold">Identificador del CI</label>
                     <input type="text" class="form-control" id="idInterface" placeholder="Indentificador del CI"
-                        formControlName="idInterface" controlErrorsClass="my-class">
+                        formControlName="idInterface" >
                 </div>
-                <div class="col-md-4">
+
+                <!-- <div class="col-md-4">
                     <label for="idInterface1" class="form-label text-bold">Identificación del Activo</label>
                     <input type="text" class="form-control" id="idInterface1" placeholder="Identificación  Activo"
                         formControlName="idInterface1">
-                </div>
+                </div> -->
                 <div class="col-md-4">
                     <label for="estado" class="form-label text-bold">Estado</label>
                     <select id="estado" class="form-select" formControlName="estado" name="estado">
                         <option [value]="item.id" *ngFor="let item of estados">{{item.nombre}}</option>
                     </select>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-4">
                     <label for="entorno" class="form-label text-bold">Entorno</label>
                     <select id="entorno" class="form-select" formControlName="entorno" name="entorno">
                         <option [value]="item.id" *ngFor="let item of entornos">{{item.nombre}}</option>
                     </select>
                 </div>
-                <div class="col-md-8">
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
                     <label for="descripcion" class="form-label text-bold">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" placeholder="Descripcion"
-                        formControlName="descripcion"
-                         >
+                    <textarea type="text" rows="2"  class="form-control" id="descripcion" placeholder="Descripcion"
+                        formControlName="descripcion"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -39,18 +40,27 @@
                 </div>
             </div>
         </div>
-        <!-- !sessionReportFilter.fileName && !sessionReportFilter.sessionName -->
+ 
         <div class="row">
             <div *ngIf="!modoEdicion" class="col-sm-4">
                 <div class="form-group text-center">
                     <div class="divider-10"></div>
-                    <button (click)="send()" [disabled]="modoEdicion" class="btn btn-outline-primary">Guardar</button>
+                   
+                    <button (click)="send()" [disabled]="modoEdicion"  class="btn btn-outline-primary">
+                        <span *ngIf="enviarServidor" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span class="sr-only">Guardar</span>
+                    </button>
+                
                 </div>
             </div>
             <div *ngIf="modoEdicion" class="col-sm-4">
                 <div class="form-group text-center">
                     <div class="divider-10"></div>
-                    <button (click)="editar()" [disabled]="!modoEdicion" class="btn btn-outline-primary">Editar</button>
+                    <button (click)="editar()" [disabled]="!modoEdicion"  class="btn btn-outline-primary">
+                        <span *ngIf="enviarServidor" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span class="sr-only">Editar</span>
+                    </button>
+                
                 </div>
             </div>
 

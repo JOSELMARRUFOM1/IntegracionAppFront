@@ -15,9 +15,9 @@ import * as dataentornos from '../../assets/json/Entorno.json';
 
 //  Ejemplo de merge
 export class CabeceraComponent implements OnInit {
-
+  enviarServidor: any;
   @Input() id: any;
-  
+
   public formCabecera = new FormGroup({});
   modoEdicion: boolean = false;
   constructor(private formBuilder: FormBuilder,
@@ -25,19 +25,15 @@ export class CabeceraComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private RestService: RestServiceService) { }
-    estados: any = (dataestados as any).default;
-    entornos: any = (dataentornos as any).default;
+  estados: any = (dataestados as any).default;
+  entornos: any = (dataentornos as any).default;
   ngOnInit(): void {
-    console.log("dataestados");
-    console.log(this.estados);
-    console.log(this.entornos);
-    
-    console.log("dataestados");
+    this.enviarServidor = false;
     // this.formCabecera();
     this.formCabecera = this.formBuilder.group({
       id: [],
-      idInterface: ['', [Validators.required]],
-      idInterface1: ['', [Validators.required]],
+      idInterface: ['INTZ_', [Validators.required]],
+      idInterface1: [''],
       estado: ['', [Validators.required]],
       entorno: ['', [Validators.required]],
       descripcion: ['', [Validators.required]]
@@ -52,6 +48,9 @@ export class CabeceraComponent implements OnInit {
 
   }
 
+  timeout(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   cargarData(id: number): void {
     this.RestService.get(environment.api + "/api/fichacabecera/" + this.id)
       .subscribe((data: any) => {
@@ -74,34 +73,45 @@ export class CabeceraComponent implements OnInit {
 
         })
   }
-  editar(): void {
-
-
+  async editar() {
+    var that = this;
     if (this.formCabecera.valid) {
+      this.enviarServidor = true;
+      await this.timeout(1000);
       this.RestService.put(environment.api + "/api/fichacabecera/" + this.formCabecera.value.id, this.formCabecera.value)
         .subscribe((res: any) => {
-
           alert('Modificacion exitosa');
-        })
+          that.enviarServidor = false;
+          that.modoEdicion = true;
+        },
+          error => {
+            alert('Modificacion exitosa');
+            that.enviarServidor = false;
+          })
     }
 
   }
-  send(): any {
-
+  async send() {
+    var that = this;
     if (this.formCabecera.valid) {
+      this.enviarServidor = true;
+      await this.timeout(1000);
       this.RestService.post(environment.api + "/api/fichacabecera", this.formCabecera.value)
         .subscribe((res: any) => {
-          this.formCabecera.value.id = res.value;
+          that.formCabecera.value.id = res.value;
           this.busqueda.disparadorDeBusqueda.emit({
             id: res.value
           })
           alert('Registro exitoso');
+          that.enviarServidor = false;
+          that.modoEdicion = true;
           this.router.navigate(['/home/' + this.formCabecera.value.id])
+
+
         },
           error => {
-            console.log(error.status);
-            console.log(error.httpResponse);
-            alert(error);
+
+            that.enviarServidor = false;
           })
     }
     else {

@@ -12,7 +12,7 @@ import * as dataestados from '../../assets/json/estados.json';
   styleUrls: ['./detalle-form.component.css']
 })
 export class DetalleFormComponent implements OnInit {
-
+  enviarServidor: any;
   id = '';
   idSecuencia = '';
   // variables generales 
@@ -54,7 +54,7 @@ export class DetalleFormComponent implements OnInit {
     private router: Router
   ) { }
   ngOnInit(): void {
-
+    this.enviarServidor = false;
     this.route.paramMap.subscribe((paramMap: any) => {
       const { params } = paramMap
       this.id = String(params.id);
@@ -91,7 +91,7 @@ export class DetalleFormComponent implements OnInit {
         this.detalleform.patchValue({
           // IdSecuencia: data.Id,
           // IdFichaCabecera: data.IdFichaCabecera,
-          Middelware: data.middelware,
+          Middelware:data.middelware,
           MiddelwareEstado: data.middelwareEstado,
           DescripcionSecuenciaOrigen: data.descripcionSecuenciaOrigen,
           DescripcionSecuenciaDestino: data.descripcionSecuenciaDestino,
@@ -123,21 +123,25 @@ export class DetalleFormComponent implements OnInit {
         })
 
   }
-  public estadoSolicitud = [
-    { id: 1, descripcion: 'Activo' },
-    { id: 2, descripcion: 'Inactivo' }
-  ];
-
+  timeout(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   // Eventos de la vista  
-  onSubmit() {
-
+  async onSubmit() {
+    var that = this;
     if (this.detalleform.valid) {
+      this.enviarServidor = true;
+      await this.timeout(1000);
       this.RestService.post(environment.api + "/api/fichadetalle", JSON.stringify(this.detalleform.value))
         .subscribe((res: any) => {
           alert('Registro exitoso');
+          that.enviarServidor = false;
+          that.modoEdicion = true;
           this.router.navigate(['/home/' + this.detalleform.value.IdFichaCabecera])
         }, err => {
           console.log(err);
+          that.enviarServidor = false;
+          that.modoEdicion = true;
         })
     }
     else {
@@ -145,15 +149,15 @@ export class DetalleFormComponent implements OnInit {
     }
   }
   editar() {
-    console.log(this.detalleform.value);
- 
-      this.RestService.put(environment.api + "/api/fichadetalle/" + this.detalleform.value.IdSecuencia, JSON.stringify(this.detalleform.value))
-        .subscribe((res: any) => {
-          alert('Modificacion exitosa');
-          this.router.navigate(['/home/' + this.detalleform.value.IdFichaCabecera])
-        }, err => {
-          console.log(err);
-        })
-     
+    this.RestService.put(environment.api + "/api/fichadetalle/" + this.detalleform.value.IdSecuencia, JSON.stringify(this.detalleform.value))
+      .subscribe((res: any) => {
+        alert('Modificacion exitosa');
+        this.router.navigate(['/home/' + this.detalleform.value.IdFichaCabecera])
+      }, err => {
+        console.log(err);
+      })
+  }
+  regresar() {
+    this.router.navigate(['/home/' + this.detalleform.value.IdFichaCabecera])
   }
 }
