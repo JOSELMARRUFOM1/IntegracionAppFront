@@ -6,12 +6,15 @@ import { RestServiceService } from '../rest-service.service';
 import { Router } from '@angular/router';
 import * as datamiddleware from '../../assets/json/Middleware.json';
 import * as dataestados from '../../assets/json/estados.json';
+import * as datainstancias from '../../assets/json/instancias.json';
 @Component({
   selector: 'app-detalle-form',
   templateUrl: './detalle-form.component.html',
   styleUrls: ['./detalle-form.component.css']
 })
 export class DetalleFormComponent implements OnInit {
+ 
+
   enviarServidor: any;
   id = '';
   idSecuencia = '';
@@ -49,19 +52,20 @@ export class DetalleFormComponent implements OnInit {
   });
   middelwares: any = (datamiddleware as any).default;
   estados: any = (dataestados as any).default;
+  instancias: any = (datainstancias as any).default;
   constructor(private route: ActivatedRoute,
     private RestService: RestServiceService,
-    private router: Router
+    private router: Router,
+
   ) { }
   ngOnInit(): void {
+    
     this.enviarServidor = false;
     this.route.paramMap.subscribe((paramMap: any) => {
       const { params } = paramMap
       this.id = String(params.id);
       if (params.id != undefined) {
-
         this.detalleform.value.IdFichaCabecera = params.id;
-
         this.detalleform.patchValue({
           IdFichaCabecera: params.id
         });
@@ -78,10 +82,14 @@ export class DetalleFormComponent implements OnInit {
 
     });
     if (this.id == undefined) {
-
       this.router.navigate(['/home'])
     }
+
+    
+
   }
+ 
+
   cargarData(id: number): void {
 
     this.detalleform.controls['DescripcionSecuenciaDestino'].setValue("response.body.data.nombres");
@@ -91,7 +99,7 @@ export class DetalleFormComponent implements OnInit {
         this.detalleform.patchValue({
           // IdSecuencia: data.Id,
           // IdFichaCabecera: data.IdFichaCabecera,
-          Middelware:data.middelware,
+          Middelware: data.middelware,
           MiddelwareEstado: data.middelwareEstado,
           DescripcionSecuenciaOrigen: data.descripcionSecuenciaOrigen,
           DescripcionSecuenciaDestino: data.descripcionSecuenciaDestino,
@@ -128,6 +136,8 @@ export class DetalleFormComponent implements OnInit {
   }
   // Eventos de la vista  
   async onSubmit() {
+
+    console.log(this.detalleform.value);
     var that = this;
     if (this.detalleform.valid) {
       this.enviarServidor = true;
@@ -141,7 +151,7 @@ export class DetalleFormComponent implements OnInit {
         }, err => {
           console.log(err);
           that.enviarServidor = false;
-          that.modoEdicion = true;
+          that.modoEdicion = false;
         })
     }
     else {

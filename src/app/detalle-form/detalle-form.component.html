@@ -1,4 +1,6 @@
 <app-home></app-home>
+<!-- https://ng-select.github.io/ng-select#/forms -->
+
 <div>
     <div class="row">
         <div class="col-md-4 ">
@@ -48,8 +50,11 @@
                         <div class="col-12">
                             <label for="InsAplicacionOrigen" class="form-label">Nombre Aplicación/Instancia
                                 Origen</label>
-                            <input id="InsAplicacionOrigen" type="text" class="form-control"
-                                formControlName="InsAplicacionOrigen">
+                       
+                            <select id="InsAplicacionOrigen" class="form-select" formControlName="InsAplicacionOrigen" name="InsAplicacionOrigen">
+                                    <option [value]="item.u_nombre_logico" *ngFor="let item of instancias">{{item.u_nombre_logico}}</option>
+                            </select>
+ 
                         </div>
                     </div>
                     <div class="row">
@@ -212,11 +217,12 @@
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
 
-                        <button (click)="onSubmit()"   class="btn btn-outline-primary">
-                            <span *ngIf="enviarServidor" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <button (click)="onSubmit()" class="btn btn-outline-primary">
+                            <span *ngIf="enviarServidor" class="spinner-border spinner-border-sm"
+                                aria-hidden="true"></span>
                             <span class="sr-only">Guardar</span>
                         </button>
-                    
+
                     </div>
                 </div>
                 <div *ngIf="modoEdicion" class="col-sm-4">

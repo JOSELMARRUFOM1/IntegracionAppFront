@@ -4,5 +4,15 @@
     overflow-y: auto;
     position: relative;
 }
-
+.form-submitted input.ng-invalid {
+    border-color:#dc3545;
+    color:#dc3545f1;
+  }
+  .form-submitted select.ng-invalid {
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+  label .class-error{
+    color: #dc3545;
+  }
 
