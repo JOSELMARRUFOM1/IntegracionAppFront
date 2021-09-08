@@ -1,1 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.control-error{
+    color:#dc3545;
+}
+

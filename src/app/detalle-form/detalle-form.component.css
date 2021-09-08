@@ -1,0 +1,31 @@
+.selected-item {
+    max-width: 500px;
+    color: red;
+    max-width: center
+}
+/* div + p */
+
+   /* .selected-item span.selected {
+color: rgb(219, 16, 16);
+  }
+  .control-error{
+    color:#dc3545;
+}
+   */
+/* .multiselect-dropdown[_ngcontent-usw-c55] .dropdown-btn[_ngcontent-usw-c55] .selected-item[_ngcontent-usw-c55]{
+    color:#dc3545 !important
+}
+._ngcontent-bhl-c55{
+    color:#dc3545 !important
+}
+.selected-item{
+    color:#dc3545 !important
+}
+span{
+    max-width: none
+}
+
+
+span[_ngcontent-svc-c55]{
+    max-width: 450px
+} */

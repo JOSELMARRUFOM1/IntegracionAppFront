@@ -1,29 +1,30 @@
 <app-home></app-home>
+<!-- https://ng-select.github.io/ng-select#/forms -->
+
 <div>
     <div class="row">
         <div class="col-md-4 ">
             <br>
         </div>
     </div>
-    <div class="shadow-none p-3 mb-5 bg-light rounded">
+    <div class="shadow-none p-3 mb-5 bg-light rounded" style="color: blue;">
         SECUENCIAS
     </div>
 
     <hr />
-    <div class="container my-3 p-3 bg-body rounded shadow-sm ">
-        <form [formGroup]="detalleform" (ngSubmit)="onSubmit()">
+    <div class="container my-3 p-3 bg-body rounded shadow-sm">
+        <form [formGroup]="detalleform" errorTailor>
             <div class="row">
                 <div class="col-md-8">
-                    <label for="Middleware" class="form-label">Middleware</label>
-                    <input id="Middleware" type="text" class="form-control" formControlName="Middleware">
+                    <label for="Middelware" class="form-label text-bold">Middelware</label>
+                    <select id="Middelware" class="form-select" formControlName="Middelware" name="Middelware">
+                        <option [value]="item.id" *ngFor="let item of middelwares">{{item.nombre}}</option>
+                    </select>
                 </div>
                 <div class="col-md-4">
-                    <label for="estados" class="form-label">Estado</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option [ngValue]="null" disabled>Seleccionar</option>
-                        <option *ngFor="let item of estadoSolicitud" [ngValue]="item.id">
-                            <span>{{ item.descripcion }}</span>
-                        </option>
+                    <label for="MiddelwareEstado" class="form-label text-bold">Estado</label>
+                    <select id="MiddelwareEstado" class="form-select" formControlName="MiddelwareEstado" name="Estado">
+                        <option [value]="item.id" *ngFor="let item of estados">{{item.nombre}}</option>
                     </select>
 
                 </div>
@@ -39,30 +40,34 @@
                 <div class="col-md-5 shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="row">
                         <div class="col-12">
-                            <label for="SecuenciaOrigen" class="form-label">Descripción Secuencia Origen</label>
-                            <input id="SecuenciaOrigen" type="text" class="form-control"
-                                formControlName="SecuenciaOrigen">
+                            <label for="DescripcionSecuenciaOrigen" class="form-label">Descripción Secuencia
+                                Origen</label>
+                            <input id="DescripcionSecuenciaOrigen" type="text" class="form-control"
+                                formControlName="DescripcionSecuenciaOrigen">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="InstanciaOrigen" class="form-label">Nombre Aplicación/Instancia Origen</label>
-                            <input id="InstanciaOrigen" type="text" class="form-control"
-                                formControlName="InstanciaOrigen">
+                            <label for="InsAplicacionOrigen" class="form-label">Nombre Aplicación/Instancia
+                                Origen</label>
+                       
+                            <select id="InsAplicacionOrigen" class="form-select" formControlName="InsAplicacionOrigen" name="InsAplicacionOrigen">
+                                    <option [value]="item.u_nombre_logico" *ngFor="let item of instancias">{{item.u_nombre_logico}}</option>
+                            </select>
+ 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="ConexionOrigen" class="form-label">Tipo Conexión Origen</label>
-                            <input id="ConexionOrigen" type="text" class="form-control"
-                                formControlName="ConexionOrigen">
+                            <label for="TipoConexionOrigen" class="form-label">Tipo Conexión Origen</label>
+                            <input id="TipoConexionOrigen" type="text" class="form-control"
+                                formControlName="TipoConexionOrigen">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="ComunicacionOrigen" class="form-label">Usuario de Comunicación Origen</label>
-                            <input id="ComunicacionOrigen" type="text" class="form-control"
-                                formControlName="UsuarioComunicaciónOrigen">
+                            <label for="UsuarioOrigen" class="form-label">Usuario de Comunicación Origen</label>
+                            <input id="UsuarioOrigen" type="text" class="form-control" formControlName="UsuarioOrigen">
                         </div>
                     </div>
                     <div class="row">
@@ -73,11 +78,11 @@
                         </div>
                     </div>
 
+
                     <div class="row">
                         <div class="col-12">
-                            <label for="JobRelacionadoOrigen" class="form-label">Job Relacionado Origen</label>
-                            <input id="JobRelacionadoOrigen" type="text" class="form-control"
-                                formControlName="JobRelacionadoOrigen">
+                            <label for="jobOrigen" class="form-label">Job Relacionado Origen</label>
+                            <input id="jobOrigen" type="text" class="form-control" formControlName="jobOrigen">
                         </div>
                     </div>
 
@@ -86,6 +91,13 @@
                             <label for="CelulaResponsableOrigen" class="form-label">Celula Responsable Origen</label>
                             <input id="CelulaResponsableOrigen" type="text" class="form-control"
                                 formControlName="CelulaResponsableOrigen">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="PathDocumentoFuncionalOrigen" class="form-label">Path Documento Origen</label>
+                            <input id="PathDocumentoFuncionalOrigen" type="text" class="form-control"
+                                formControlName="PathDocumentoFuncionalOrigen">
                         </div>
                     </div>
 
@@ -116,31 +128,33 @@
                 <div class="col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="row">
                         <div class="col-12">
-                            <label for="SecuenciaDestino" class="form-label">Descripción Secuencia Destino</label>
-                            <input id="SecuenciaDestino" type="text" class="form-control"
-                                formControlName="SecuenciaDestino">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="InstanciaDestino" class="form-label">Nombre Aplicación/Instancia Destino</label>
-                            <input id="InstanciaDestino" type="text" class="form-control"
-                                formControlName="InstanciaDestino">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="ConexionDestino" class="form-label">Tipo Conexión Destino</label>
-                            <input id="ConexionDestino" type="text" class="form-control"
-                                formControlName="ConexionDestino">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="UsuarioComunicaciónOrigen" class="form-label">Usuario de Comunicación
+                            <label for="DescripcionSecuenciaDestino" class="form-label">Descripción Secuencia
                                 Destino</label>
-                            <input id="UsuarioComunicaciónOrigen" type="text" class="form-control"
-                                formControlName="UsuarioComunicaciónOrigen">
+                            <input id="DescripcionSecuenciaDestino" type="text" class="form-control"
+                                formControlName="DescripcionSecuenciaDestino">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="InsAplicacionDestino" class="form-label">Nombre Aplicación/Instancia
+                                Destino</label>
+                            <input id="InsAplicacionDestino" type="text" class="form-control"
+                                formControlName="InsAplicacionDestino">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="TipoConexionDestino" class="form-label">Tipo Conexión Destino</label>
+                            <input id="TipoConexionDestino" type="text" class="form-control"
+                                formControlName="TipoConexionDestino">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="UsuarioDestino" class="form-label">Usuario de Comunicación
+                                Destino</label>
+                            <input id="UsuarioDestino" type="text" class="form-control"
+                                formControlName="UsuarioDestino">
                         </div>
                     </div>
                     <div class="row">
@@ -150,11 +164,11 @@
                                 formControlName="CertificadoDestino">
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-12">
-                            <label for="JobRelacionadoDestino" class="form-label">Job Relacionado Destino</label>
-                            <input id="JobRelacionadoDestino" type="text" class="form-control"
-                                formControlName="JobRelacionadoDestino">
+                            <label for="JobDestino" class="form-label">Job Relacionado Destino</label>
+                            <input id="JobDestino" type="text" class="form-control" formControlName="JobDestino">
                         </div>
                     </div>
                     <div class="row">
@@ -164,7 +178,13 @@
                                 formControlName="CelulaResponsableDestino">
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="PathDocumentoFuncionalDestino" class="form-label">Path Documento Destino</label>
+                            <input id="PathDocumentoFuncionalDestino" type="text" class="form-control"
+                                formControlName="PathDocumentoFuncionalDestino">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="ConectorDestino" class="form-label">Conector Destino</label>
@@ -190,15 +210,31 @@
 
                 </div>
             </div>
-
             <hr />
+
             <div class="row">
-                <div class="col-sm-4">
+                <div *ngIf="!modoEdicion" class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                        <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+                        <button (click)="onSubmit()" class="btn btn-outline-primary">
+                            <span *ngIf="enviarServidor" class="spinner-border spinner-border-sm"
+                                aria-hidden="true"></span>
+                            <span class="sr-only">Guardar</span>
+                        </button>
+
                     </div>
                 </div>
+                <div *ngIf="modoEdicion" class="col-sm-4">
+                    <div class="form-group text-center">
+                        <div class="divider-10"></div>
+                        <button (click)="editar()" [disabled]="!modoEdicion"
+                            class="btn btn-outline-primary">Editar</button>
+
+
+                    </div>
+                </div>
+
                 <div class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
@@ -208,13 +244,10 @@
                 <div class="col-sm-4">
                     <div class="form-group text-center">
                         <div class="divider-10"></div>
-                        <button [routerLink]="['/busqueda']" type="submit" class="btn btn-outline-primary">Regresar</button>
+                        <button (click)="regresar()" class="btn btn-outline-primary">Regresar</button>
                     </div>
                 </div>
             </div>
-
-
         </form>
     </div>
-
 </div>

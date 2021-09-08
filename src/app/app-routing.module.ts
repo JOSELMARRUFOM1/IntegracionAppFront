@@ -15,11 +15,23 @@ const routes: Routes = [
     component: FichaComponent
   },
   {
+    path: 'home/:id',
+    component: FichaComponent
+  },
+  {
     path: 'busqueda',
     component: BusquedaComponent
   },
   {
     path: 'secuencia',
+    component: DetalleFormComponent
+  },
+  {
+    path: 'secuencia/:id',
+    component: DetalleFormComponent
+  },
+  {
+    path: 'secuencia/:id/:idSecuencia',
     component: DetalleFormComponent
   },
   {
